@@ -44,5 +44,31 @@ validacionDatagen = ImageDataGenerator(
         rescale = 1./255
     )
 
+imagenEntrenamiento = entrenamientoDatagen.flow_from_directory(
+        dataEntrenamiento,
+        targetSize = (altura, longitud),
+        batchSize = batchSize,
+        classMode = 'categorial'
+    )
+
+imagenValidacion = validacionDatagen.flow_from_directory(
+        dataValidacion,
+        targetSize = (altura, longitud),
+        batchSize = batchSize,
+        classMode = 'categorial'
+    )
+
+# Crear la red CNN
+cnn = Sequentials()
+
+cnn.add(Convolution2D(filtrosConvl1, tamFiltro1, padding = 'same', inputShape = (altura, longitud), activation = 'relu'))
+
+cnn.add(MaxPooling2D(poolSize = tamPool))
+
+cnn.add(Convolution2D(filtrosConvl2, tamFiltro2, padding = 'same', activation = 'relu'))
+cnn.add(MaxPooling2D(poolSize = tamPool))
+
+cnn.add(Flatten())
+cnn.add(Dense(256, activation = 'relu'))
 
 

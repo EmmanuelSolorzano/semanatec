@@ -3,6 +3,7 @@
 Created on Thu Sep 16 21:21:57 2021
 
 @author: A00227534
+emma g alfaro a01740229
 """
 import sys
 import os
@@ -74,6 +75,18 @@ cnn.add(Flatten())
 cnn.add(Dense(256, activation = 'relu'))
 cnn.add(Dropout(0.5))
 cnn.add(Dense(clases, activation = 'softmax'))
+
+cnn.compile(loss='categorical_crossetropy', optimizer = optimizers.Adam(lr=lr), metrics=['accuracy'])
+
+cnn.fit(imagenEntrenamiento,steps_per_epoch = pasos, epochs = epocas, validacionDatagen = imagenValidacion, validationsSteps = pasosValidacion)
+
+dir = './modelo/'
+
+if not os.path.exists(dir):
+    os.mkdir(dir)
+cnn.save('.modelo/modelo.h5')
+cnn.save_weights('.modelo/pesos.h5')
+
 
 
 

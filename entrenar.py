@@ -64,7 +64,7 @@ imagenValidacion = validacionDatagen.flow_from_directory(
 # Crear la red CNN
 cnn = Sequentials()
 
-cnn.add(Convolution2D(filtrosConvl1, tamFiltro1, padding = 'same', inputShape = (altura, longitud), activation = 'relu'))
+cnn.add(Convolution2D(filtrosConvl1, tamFiltro1, padding = 'same', inputShape = (altura, longitud, 3), activation = 'relu'))
 
 cnn.add(MaxPooling2D(poolSize = tamPool))
 

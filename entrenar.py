@@ -72,5 +72,8 @@ cnn.add(MaxPooling2D(poolSize = tamPool))
 
 cnn.add(Flatten())
 cnn.add(Dense(256, activation = 'relu'))
+cnn.add(Dropout(0.5))
+cnn.add(Dense(clases, activation = 'softmax'))
+
 
 

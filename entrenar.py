@@ -18,6 +18,7 @@ K.clear_session()
 dataEntrenamiento = './data/entrenamiento' # Direccion de imagenes para entrenar
 dataValidacion = '.data/validacion' # Direccion de imagenes para validar
 
+
 # Parametros
 epocas = 20
 altura, longitud = 100, 100

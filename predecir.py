@@ -24,7 +24,7 @@ def predict(file):
         print('Gorila')
     return respuesta
 
-    print('hola lo borras emmanuel')
 
+predict("aqui se pone las imagenes")
 
 
